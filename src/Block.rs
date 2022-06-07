@@ -1,5 +1,7 @@
 use chrono::prelude::*;
-use serde_json::{Result, Value};
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Block {
     id: u64,
     timestamp: i64,
@@ -10,7 +12,7 @@ pub struct Block {
 }
 
 impl Block {
-    pub fn new() -> Self {
+    pub fn new(previous_hash: ) -> Self {
         Block{}
     }
     pub fn genesis() -> Self {
@@ -34,5 +36,9 @@ impl Block {
     pub fn generate_hash(block: &Block) -> String {
 
     }
+
+    pub fn get_block_count() -> u64{}
+
+
 
 }
