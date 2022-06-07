@@ -10,6 +10,9 @@ pub struct Block {
 }
 
 impl Block {
+    pub fn new() -> Self {
+        Block{}
+    }
     pub fn genesis() -> Self {
         Block {
             id: 1,
