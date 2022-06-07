@@ -9,7 +9,7 @@ pub struct Block {
     previous_hash: String,
     //transaction: vec [],
     validator: String,
-    block_transactions: String
+    block_transactions: vec![]
 }
 
 impl Block {
