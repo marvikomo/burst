@@ -1,6 +1,6 @@
-use block::Block;
+use blockchain::block::Block;
 
-mod block;
+mod blockchain;
 
 fn main() {
     //println!("Hello, world!");
