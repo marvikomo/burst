@@ -1,5 +1,8 @@
 use chrono::prelude::*;
 use serde::{Serialize, Deserialize};
+use super::transaction::Transaction;
+
+
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Block {
@@ -9,7 +12,7 @@ pub struct Block {
     previous_hash: String,
     //transaction: vec [],
     validator: String,
-    block_transactions: vec![]
+    block_transactions: Vec<Transaction>
 }
 
 impl Block {
