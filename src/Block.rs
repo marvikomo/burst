@@ -1,4 +1,5 @@
 use chrono::prelude::*;
+use serde_json::{Result, Value};
 pub struct Block {
     id: u64,
     timestamp: i64,
@@ -18,4 +19,17 @@ impl Block {
             Validator: String::from("0"),
         }
     }
+
+    pub fn is_valid_block(hash: &str) -> bool {
+
+    }
+
+    pub fn serialize_block(&self) -> String{
+        serde_json::to_string(&self).unwrap();
+    }
+
+    pub fn generate_hash(block: &Block) -> String {
+
+    }
+
 }
