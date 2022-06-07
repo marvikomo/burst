@@ -1,19 +1,27 @@
 use chrono::prelude::*;
-use serde::{Deserialize, Serialize};
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Block {
     id: u64,
     timestamp: i64,
     hash: String,
     previous_hash: String,
     //transaction: vec [],
-    Validator: String,
+    validator: String,
+    block_transactions: String
 }
 
 impl Block {
-    pub fn new(previous_hash: ) -> Self {
-        Block{}
+    pub fn new(id: u64, previous_hash: String, validator: String) -> Self {
+       Self{
+           id,
+           timestamp: Utc::now().timestamp(),
+           hash: String::from("00x"),
+           previous_hash: String::from("00x"),
+           validator: String::from("00x"),
+           block_transactions: String::from("00x")
+       }
     }
     pub fn genesis() -> Self {
         Block {
@@ -21,24 +29,28 @@ impl Block {
             timestamp: Utc::now().timestamp(),
             hash: String::from("0"),
             previous_hash: String::from("0"),
-            Validator: String::from("0"),
+            validator: String::from("0"),
+            block_transactions: String::from("00x")
         }
     }
+    
+    pub fn generate_hash(id: u64, timestamp: i64, hash: &str, previous_hash: &str) -> String {
+        unimplemented!();
+    }
+
+    //pub fn generate_block(&self, )
 
     pub fn is_valid_block(hash: &str) -> bool {
-
+        unimplemented!();
     }
 
-    pub fn serialize_block(&self) -> String{
+    pub fn serialize_block(&self) -> String {
         serde_json::to_string(&self).unwrap();
+        unimplemented!();
     }
 
-    pub fn generate_hash(block: &Block) -> String {
-
+    pub fn get_block_count() -> u64 {
+        unimplemented!();
     }
-
-    pub fn get_block_count() -> u64{}
-
-
-
 }
+
