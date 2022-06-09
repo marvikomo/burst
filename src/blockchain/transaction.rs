@@ -1,6 +1,7 @@
 use std::fmt::Debug;
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Transaction{
     transaction_id: String,
     transaction_timestamp: i64,

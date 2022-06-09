@@ -1,6 +1,7 @@
 use chrono::prelude::*;
 use serde::{Serialize, Deserialize};
 use super::transaction::Transaction;
+use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
 
 
 
@@ -56,4 +57,10 @@ impl Block {
         unimplemented!();
     }
 }
+
+// impl Debug for Block{
+//     fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
+//         write!(f, "{}", "error")
+//     }
+// }
 
