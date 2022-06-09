@@ -1,9 +1,7 @@
-use chrono::prelude::*;
-use serde::{Serialize, Deserialize};
 use super::transaction::Transaction;
+use chrono::prelude::*;
+use serde::{Deserialize, Serialize};
 use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
-
-
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Block {
@@ -13,31 +11,35 @@ pub struct Block {
     previous_hash: String,
     //transaction: vec [],
     validator: String,
-    block_transactions: Vec<Transaction>
+    block_transactions: Vec<Transaction>,
 }
 
 impl Block {
     pub fn new(id: u64, previous_hash: String, validator: String) -> Self {
-       Self{
-           id,
-           timestamp: Utc::now().timestamp(),
-           hash: String::from("00x"),
-           previous_hash: String::from("00x"),
-           validator: String::from("00x"),
-           block_transactions: String::from("00x")
-       }
+        Self {
+            id,
+            timestamp: Utc::now().timestamp(),
+            hash: String::from("00x"),
+            previous_hash: String::from("00x"),
+            validator: String::from("00x"),
+            block_transactions:vec![]
+        }
     }
     pub fn genesis() -> Self {
+        let transaction: Transaction = Transaction::new(
+            String::from("1"),
+            Utc::now().timestamp(),
+            String::from("This is a dummy transaction signed by marv"),
+        );
         Block {
             id: 1,
             timestamp: Utc::now().timestamp(),
             hash: String::from("0"),
             previous_hash: String::from("0"),
             validator: String::from("0"),
-            block_transactions: String::from("00x")
+            block_transactions: vec![transaction]
         }
     }
-    
     pub fn generate_hash(id: u64, timestamp: i64, hash: &str, previous_hash: &str) -> String {
         unimplemented!();
     }
@@ -63,4 +65,3 @@ impl Block {
 //         write!(f, "{}", "error")
 //     }
 // }
-

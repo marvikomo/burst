@@ -3,9 +3,9 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Transaction{
-    transaction_id: String,
-    transaction_timestamp: i64,
-    transaction_details: String
+    pub transaction_id: String,
+    pub transaction_timestamp: i64,
+    pub transaction_details: String
 }
 
 impl Transaction {
