@@ -60,8 +60,3 @@ impl Block {
     }
 }
 
-// impl Debug for Block{
-//     fn fmt(&self, f: &mut Formatter<'_>) -> FmtResult {
-//         write!(f, "{}", "error")
-//     }
-// }
