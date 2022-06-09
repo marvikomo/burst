@@ -1,4 +1,6 @@
+use std::fmt::Debug;
 
+#[derive(Debug)]
 pub struct Transaction{
     transaction_id: String,
     transaction_timestamp: i64,
