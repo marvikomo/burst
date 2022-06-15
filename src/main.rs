@@ -4,5 +4,6 @@ mod blockchain;
 
 fn main() {
     //println!("Hello, world!");
-    Block::new(23, "oxxxx".to_string(), "oxxx".to_string());
+   let block = Block::new(1,vec![], "oxxxx".to_string(), "oxxx".to_string());
+   println!("response: {:?}", block.serialize_block());
 }

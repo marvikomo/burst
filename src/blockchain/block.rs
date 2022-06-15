@@ -15,7 +15,8 @@ pub struct Block {
 }
 
 impl Block {
-    pub fn new(id: u64, previous_hash: String, validator: String) -> Self {
+    pub fn new(id:u64,transaction: Vec<Transaction>,previous_hash: String, validator: String) -> Self {
+        //let hash = generate_hash(String::from("2"), timestamp: i64, hash: &str, previous_hash: &str)
         Self {
             id,
             timestamp: Utc::now().timestamp(),
@@ -40,7 +41,7 @@ impl Block {
             block_transactions: vec![transaction]
         }
     }
-    pub fn generate_hash(id: u64, timestamp: i64, hash: &str, previous_hash: &str) -> String {
+    pub fn generate_hash(&self) -> String {
         unimplemented!();
     }
 
@@ -51,12 +52,12 @@ impl Block {
     }
 
     pub fn serialize_block(&self) -> String {
-        serde_json::to_string(&self).unwrap();
-        unimplemented!();
+        serde_json::to_string(&self).unwrap()   
     }
 
     pub fn get_block_count() -> u64 {
         unimplemented!();
     }
 }
+
 
