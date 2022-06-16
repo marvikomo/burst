@@ -8,10 +8,10 @@ use sha2::{Digest, Sha256};
 pub struct Block {
     id: u64,
     timestamp: i64,
-    hash: String,
-    previous_hash: String,
+    hash: Option<String>,
+    previous_hash: Option<String>,
     //transaction: vec [],
-    validator: String,
+    validator: Option<String>,
     block_transactions: Vec<Transaction>,
 }
 
@@ -21,9 +21,9 @@ impl Block {
         Self {
             id,
             timestamp: Utc::now().timestamp(),
-            hash: String::from("00x"),
-            previous_hash: String::from("00x"),
-            validator: String::from("00x"),
+            hash: None,
+            previous_hash: Some(String::from("00x")),
+            validator: Some(String::from("00x")),
             block_transactions:vec![]
         }
     }
@@ -36,9 +36,9 @@ impl Block {
         Block {
             id: 1,
             timestamp: Utc::now().timestamp(),
-            hash: String::from("0"),
-            previous_hash: String::from("0"),
-            validator: String::from("0"),
+            hash: Some(String::from("0")),
+            previous_hash: Some(String::from("0")),
+            validator: Some(String::from("0")),
             block_transactions: vec![transaction]
         }
     }
