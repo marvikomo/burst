@@ -2,6 +2,7 @@ use super::transaction::Transaction;
 use chrono::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
+use sha2::{Digest, Sha256};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Block {
@@ -42,7 +43,9 @@ impl Block {
         }
     }
     pub fn generate_hash(&self) -> String {
-        unimplemented!();
+        let mut hasher = Sha256::new();
+        hasher.update(self.serialize_block().to_string().as_bytes());
+        byte_vector_to_string(&hasher.finalize().as_slice().to_owned())    
     }
 
     //pub fn generate_block(&self, )
@@ -58,6 +61,10 @@ impl Block {
     pub fn get_block_count() -> u64 {
         unimplemented!();
     }
+}
+
+fn byte_vector_to_string(arr: &Vec<u8>) -> String {
+    arr.iter().map(|&c| c as char).collect()
 }
 
 
