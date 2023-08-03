@@ -1,4 +1,4 @@
-use blockchain::block::Block;
+use blockchain::chain::Block;
 
 mod blockchain;
 

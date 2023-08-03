@@ -1,5 +1,5 @@
-pub use block::Block;
+pub use chain::Block;
 pub use transaction::Transaction;
 
-pub mod block;
+pub mod chain;
 pub mod transaction;
