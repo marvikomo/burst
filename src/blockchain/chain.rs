@@ -1,22 +1,26 @@
+
+#![allow(dead_code)]  //this turns of warning for vars I don't use
+#![allow(unused_imports)]
+
 use super::transaction::Transaction;
 use chrono::prelude::*;
 use serde::{Deserialize, Serialize};
 use std::fmt::{Debug, Display, Formatter, Result as FmtResult};
 use sha2::{Digest, Sha256};
 
-#[derive(Serialize, Deserialize, Debug)]
-pub struct BlockHeader {
-    pub height: BlockHeight,
-    pub hash: CryptoHash,
-    pub previous_hash: CryptoHash,
-    pub epoch_id: EpochId,
-    pub next_epoch_id: EpochId,
-    pub gas_price: Balance,
-    pub validator_reward: Balance,
-    pub timestamp: u64,
-    pub signature: Signature,
-    pub protocol_version: ProtocolVersion
-}
+//#[derive(Serialize, Deserialize, Debug)]
+// pub struct BlockHeader {
+//     pub height: u64,
+//     pub hash: CryptoHash,
+//     pub previous_hash: CryptoHash,
+//     pub epoch_id: EpochId,
+//     pub next_epoch_id: EpochId,
+//     pub gas_price: Balance,
+//     pub validator_reward: Balance,
+//     pub timestamp: u64,
+//     pub signature: Signature,
+//     pub protocol_version: ProtocolVersion
+// }
 
 
 #[derive(Serialize, Deserialize, Debug)]
